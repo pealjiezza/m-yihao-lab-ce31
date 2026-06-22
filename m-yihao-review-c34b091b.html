@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壹号娱乐 · 轻介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f4f6;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e6eaef;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-nav .brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+            color: #1f3a4b;
+        }
+
+        .top-nav .brand span {
+            color: #6f8faa;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d4a5e;
+            font-size: 0.95rem;
+            padding: 4px 6px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background: #ecf1f6;
+        }
+
+        /* Hero 区 */
+        .hero-card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px 40px;
+            border: 1px solid #e1e7ed;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            text-align: center;
+        }
+
+        .hero-card h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #142634;
+        }
+
+        .hero-card p {
+            max-width: 680px;
+            margin: 0 auto 20px;
+            color: #3a4f62;
+            font-size: 1.05rem;
+        }
+
+        .hero-card .tagline {
+            display: inline-block;
+            background: #e9eff5;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #1f3a4b;
+        }
+
+        /* 三场景网格 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .scene-item {
+            background: white;
+            border-radius: 20px;
+            padding: 28px 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .scene-item:hover {
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+        }
+
+        .scene-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #1a3142;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .scene-item p {
+            color: #3d5569;
+            font-size: 0.95rem;
+        }
+
+        .scene-item .mini-tag {
+            display: inline-block;
+            margin-top: 14px;
+            background: #f0f4f9;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #2f4b61;
+        }
+
+        /* 常见说明卡片 */
+        .faq-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px 32px 28px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #142634;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #1e3a4b;
+        }
+
+        .faq-item p {
+            color: #3e566b;
+            font-size: 0.95rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 底部 */
+        .footnote {
+            text-align: center;
+            padding: 18px 10px;
+            color: #6b8299;
+            font-size: 0.9rem;
+            border-top: 1px solid #dce3eb;
+            margin-top: 4px;
+        }
+
+        .footnote a {
+            color: #2d4a5e;
+            text-decoration: none;
+            font-weight: 450;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero-card {
+                padding: 32px 20px;
+            }
+            .hero-card h1 {
+                font-size: 1.7rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-card {
+                padding: 24px 18px;
+            }
+        }
+
+        /* 内联链接在段落中使用 */
+        .text-link {
+            color: #2d6480;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 450;
+        }
+
+        .text-link:hover {
+            color: #1a4356;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 导航 -->
+        <nav class="top-nav">
+            <div class="brand">壹号<span>· 轻介绍</span></div>
+            <div class="nav-links">
+                <a href="#scene-section">常见场景</a>
+                <a href="#faq-section">常见说明</a>
+            </div>
+        </nav>
+
+        <!-- Hero 区 -->
+        <div class="hero-card">
+            <h1>寻找一个清晰、可靠的站点？</h1>
+            <p>
+                当你打开一个网址，最希望你快速知道：<br>
+                这是做什么的？是否与自己的需求匹配？<br>
+                下面用三个场景帮你判断 —— 这里就是 <a href="https://m--yihao.com" class="text-link">壹号娱乐</a> 的简明介绍页。
+            </p>
+            <div class="tagline">轻量导航 · 快速识别用途</div>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scene-grid" id="scene-section">
+            <div class="scene-item">
+                <h3>🎲 寻找休闲时刻</h3>
+                <p>想找一个放松的线上空间，不复杂、不费劲。许多人第一次打开这个域名，就是想看看是否有合适的轻互动内容。</p>
+                <div class="mini-tag">看看是否适合自己</div>
+            </div>
+            <div class="scene-item">
+                <h3>🧩 体验简洁功能</h3>
+                <p>不需要注册、不弹窗、不收集冗余信息。页面清晰展示核心信息，你只需要判断：这个平台是否包含你期待的内容形式。</p>
+                <div class="mini-tag">没有多余干扰</div>
+            </div>
+            <div class="scene-item">
+                <h3>📋 确认平台性质</h3>
+                <p>很多用户会先浏览介绍页，确认平台定位、风格和更新频率。这里提供的就是老实、坦诚的介绍 —— 不夸大，不藏掖。</p>
+                <div class="mini-tag">信息透明</div>
+            </div>
+        </div>
+
+        <!-- 常见说明 FAQ 摘要 -->
+        <div class="faq-card" id="faq-section">
+            <h2>一些常见的疑问 · 快速回答</h2>
+            <div class="faq-item">
+                <strong>这个网站是做什么的？</strong>
+                <p>简单说，<a href="https://m--yihao.com" class="text-link">壹号娱乐</a> 是一个提供在线休闲内容的平台。具体内容方向由运营方决定，你可以通过浏览页面快速了解。</p>
+            </div>
+            <div class="faq-item">
+                <strong>需要下载或付费吗？</strong>
+                <p>目前介绍页所指向的站点，大部分基础体验无需下载。具体是否包含付费内容，以站内实际说明为准。</p>
+            </div>
+            <div class="faq-item">
+                <strong>信息是否可靠？</strong>
+                <p>本页仅作介绍用途，不代替网站完整条款。建议直接访问 <a href="https://m--yihao.com" class="text-link">壹号娱乐</a> 查看更多详情。</p>
+            </div>
+        </div>
+
+        <!-- 底部 自然包含链接 -->
+        <div class="footnote">
+            本页为独立介绍，更多信息请参考 <a href="https://m--yihao.com">壹号娱乐</a> · 内容仅供参考
+        </div>
+    </div>
+</body>
+</html>
